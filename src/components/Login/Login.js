@@ -11,24 +11,24 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  useEffect(() => {
-    /**
-     * this is the simple wat to execute this function if any change occure in email and password
-     * Issue: This function execute on every key stroke
-      setFormIsValid(
-        enteredEmail.includes('@') && enteredPassword.trim().length > 6
-      );
-     */
+  // useEffect(() => {
+  //   /**
+  //    * this is the simple wat to execute this function if any change occure in email and password
+  //    * Issue: This function execute on every key stroke
+  //     setFormIsValid(
+  //       enteredEmail.includes('@') && enteredPassword.trim().length > 6
+  //     );
+  //    */
 
-    /** debouncing and useEffect Cleanup(that execute before actual code) */
-    const validTimer = setTimeout(() => {
-      setFormIsValid( enteredEmail.includes('@') && enteredPassword.trim().length > 6 )
-    }, 200)
+  //   /** debouncing and useEffect Cleanup(that execute before actual code) */
+  //   const validTimer = setTimeout(() => {
+  //     setFormIsValid( enteredEmail.includes('@') && enteredPassword.trim().length > 6 )
+  //   }, 200)
 
-    return () => {
-      clearTimeout(validTimer)
-    }
-  }, [enteredEmail, enteredPassword])
+  //   return () => {
+  //     clearTimeout(validTimer)
+  //   }
+  // }, [enteredEmail, enteredPassword])
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
